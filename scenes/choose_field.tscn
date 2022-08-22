@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://themes/texture_button_normal.tres" type="StyleBox" id=1]
+[ext_resource path="res://assets/art/ui/button_pressed.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/button_font.tres" type="DynamicFont" id=3]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 48, 16 )
+margin_left = 4.0
+margin_right = 5.0
+margin_top = 5.0
+margin_bottom = 5.0
+
+[node name="choose_field" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 344.0
+margin_top = 202.0
+margin_right = 510.0
+margin_bottom = 277.0
+
+[node name="start_button2" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_right = 166.0
+margin_bottom = 75.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/normal = ExtResource( 1 )
+text = "SELECT!"

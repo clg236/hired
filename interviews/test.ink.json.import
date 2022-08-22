@@ -1,0 +1,14 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+path="res://.import/test.ink.json-4669af0668813f44e371f864c8feb4cc.res"
+
+[deps]
+
+source_file="res://interviews/test.ink.json"
+dest_files=[ "res://.import/test.ink.json-4669af0668813f44e371f864c8feb4cc.res" ]
+
+[params]
+
+compress=true
