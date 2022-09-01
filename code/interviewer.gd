@@ -10,4 +10,5 @@ var emotions = {
 var emotion = emotions.happy
 
 func _ready():
-	texture = emotion
+	#texture = emotion
+	pass

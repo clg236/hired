@@ -405,6 +405,7 @@ _global_script_class_icons={
 [application]
 
 config/name="hired"
+run/main_scene="res://scenes/start_screen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

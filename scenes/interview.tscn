@@ -1,26 +1,65 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://code/interview.gd" type="Script" id=1]
 [ext_resource path="res://code/interviewer.gd" type="Script" id=2]
-[ext_resource path="res://assets/art/programmer/interviewer/happy.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/ui/characters/interviewee_happy.png" type="Texture" id=3]
 [ext_resource path="res://scenes/question.gd" type="Script" id=4]
-[ext_resource path="res://assets/art/programmer/interviewer/surprised.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/ui/backgrounds/interviewee_bg.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/ui/history_callout.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/ui/backgrounds/interview_wall.png" type="Texture" id=7]
+[ext_resource path="res://assets/art/ui/desk_resume.png" type="Texture" id=8]
+[ext_resource path="res://assets/art/ui/environment/desk.png" type="Texture" id=9]
+[ext_resource path="res://assets/art/ui/characters/boss_consultant.png" type="Texture" id=10]
+[ext_resource path="res://assets/art/ui/interviewee_chair.png" type="Texture" id=11]
+[ext_resource path="res://assets/art/ui/dialogue_box_boss.png" type="Texture" id=12]
+[ext_resource path="res://assets/art/ui/dialogue_stem_boss.png" type="Texture" id=13]
+[ext_resource path="res://assets/art/ui/scroll_bar_fg.png" type="Texture" id=14]
+[ext_resource path="res://assets/art/ui/scroll_bar_bg.png" type="Texture" id=15]
+[ext_resource path="res://assets/art/ui/notebook-open.png" type="Texture" id=16]
+[ext_resource path="res://assets/art/ui/notebook-closed.png" type="Texture" id=17]
+[ext_resource path="res://assets/art/ui/dialogue_stem_player.png" type="Texture" id=18]
+[ext_resource path="res://assets/art/ui/dialogue_box_player.png" type="Texture" id=19]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=8]
 draw_center = false
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color( 1, 1, 1, 1 )
+anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 3.0
+margin_right = 3.0
+margin_top = 3.0
+margin_bottom = 3.0
 draw_center = false
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 8, 8 )
+margin_left = 1.0
+margin_right = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 8, 8 )
+margin_left = 1.0
+margin_right = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+
+[sub_resource type="Theme" id=13]
+VScrollBar/styles/grabber = SubResource( 11 )
+VScrollBar/styles/scroll = SubResource( 12 )
+
+[sub_resource type="StyleBoxEmpty" id=14]
+content_margin_bottom = 25.0
 
 [sub_resource type="DynamicFontData" id=4]
 antialiased = false
@@ -30,39 +69,25 @@ font_path = "res://assets/fonts/OpenDyslexic3-Regular.ttf"
 size = 12
 font_data = SubResource( 4 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxTexture" id=15]
 content_margin_left = 15.0
 content_margin_right = 15.0
-content_margin_top = 15.0
-content_margin_bottom = 15.0
-bg_color = Color( 1, 0.921569, 0, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 1, 1, 1, 1 )
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-anti_aliasing = false
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 226, 60 )
+margin_left = 1.0
+margin_right = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
 
-[sub_resource type="StyleBoxFlat" id=6]
-content_margin_left = 15.0
-content_margin_right = 15.0
-content_margin_top = 15.0
-content_margin_bottom = 15.0
-bg_color = Color( 0.0313726, 0.0470588, 0.0470588, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 1, 1, 1, 1 )
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-anti_aliasing = false
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 318, 83 )
+margin_left = 10.0
+margin_right = 10.0
+margin_top = 10.0
+margin_bottom = 10.0
 
 [node name="interview" type="Control"]
 anchor_right = 1.0
@@ -74,50 +99,97 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 240, 240 )
 mouse_filter = 2
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 8 )
 
 [node name="bg" type="ColorRect" parent="interviewer_panel"]
+visible = false
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.203922, 0.231373, 0.243137, 1 )
 
-[node name="interviewer" type="TextureRect" parent="interviewer_panel"]
-modulate = Color( 0, 1, 0.215686, 1 )
-show_behind_parent = true
+[node name="wallpaper" type="TextureRect" parent="interviewer_panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -37.0
-margin_top = 13.0
-margin_right = -231.0
-margin_bottom = 13.0
-texture = ExtResource( 5 )
+margin_bottom = 0.471985
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 2
+
+[node name="desk" type="TextureRect" parent="interviewer_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 390.0
+margin_right = 1.0
+margin_bottom = 1.0
+texture = ExtResource( 9 )
+
+[node name="interviewer" type="TextureRect" parent="interviewer_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 103.0
+margin_top = 16.0
+margin_right = -167.0
+margin_bottom = -54.0
+texture = ExtResource( 10 )
 expand = true
 stretch_mode = 6
 script = ExtResource( 2 )
+
+[node name="resume" type="TextureRect" parent="interviewer_panel"]
+margin_left = 322.0
+margin_top = 400.0
+margin_right = 495.0
+margin_bottom = 464.0
+texture = ExtResource( 8 )
+
+[node name="notes_button" type="TextureButton" parent="interviewer_panel"]
+margin_left = 18.0
+margin_top = 355.0
+margin_right = 258.0
+margin_bottom = 480.0
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 16 )
 
 [node name="interviewee_panel" type="Panel" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -128.0
-margin_top = -128.0
-margin_right = -9.0
-margin_bottom = -9.0
+margin_left = -842.0
+margin_top = -471.0
+margin_right = -696.0
+margin_bottom = -351.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 9 )
 
 [node name="bg" type="ColorRect" parent="interviewee_panel"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0.717647, 1, 1 )
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = -1.0
+color = Color( 0.607843, 0.65098, 0.701961, 1 )
+
+[node name="chair" type="TextureRect" parent="interviewee_panel"]
+show_behind_parent = true
+margin_left = 26.0
+margin_top = 67.0
+margin_right = 117.0
+margin_bottom = 119.0
+texture = ExtResource( 11 )
 
 [node name="interviewee" type="TextureRect" parent="interviewee_panel"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 8.0
+margin_right = -26.0
+margin_bottom = -1.0
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
@@ -127,201 +199,105 @@ script = ExtResource( 2 )
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -407.0
-margin_top = 116.0
-margin_right = -14.0
-margin_bottom = -129.0
+margin_left = -366.0
+margin_top = 135.0
+margin_right = -23.0
+margin_bottom = -95.0
 grow_horizontal = 0
 rect_min_size = Vector2( 320, 0 )
+theme = SubResource( 13 )
+custom_styles/bg = SubResource( 14 )
 scroll_horizontal_enabled = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 381.0
-margin_bottom = 356.0
+[node name="answers" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 343.0
+margin_bottom = 225.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+alignment = 2
 
-[node name="answer_row" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-margin_right = 381.0
-margin_bottom = 56.0
+[node name="answer_row" type="HBoxContainer" parent="ScrollContainer/answers"]
+margin_top = 111.0
+margin_right = 343.0
+margin_bottom = 225.0
 
-[node name="spacer" type="Control" parent="ScrollContainer/VBoxContainer/answer_row"]
+[node name="spacer" type="Control" parent="ScrollContainer/answers/answer_row"]
 margin_right = 25.0
-margin_bottom = 56.0
+margin_bottom = 114.0
 rect_min_size = Vector2( 25, 0 )
 
-[node name="answer2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/answer_row"]
+[node name="answer2" type="RichTextLabel" parent="ScrollContainer/answers/answer_row"]
 margin_left = 29.0
-margin_right = 381.0
-margin_bottom = 56.0
-size_flags_horizontal = 3
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 5 )
-custom_styles/normal = SubResource( 7 )
-bbcode_enabled = true
-bbcode_text = "[u] ooooooooooooo [/u]"
-text = " ooooooooooooo "
-fit_content_height = true
-scroll_active = false
-
-[node name="answer_row2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-margin_top = 60.0
-margin_right = 381.0
-margin_bottom = 116.0
-
-[node name="spacer" type="Control" parent="ScrollContainer/VBoxContainer/answer_row2"]
-margin_right = 25.0
-margin_bottom = 56.0
-rect_min_size = Vector2( 25, 0 )
-
-[node name="answer2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/answer_row2"]
-margin_left = 29.0
-margin_right = 381.0
-margin_bottom = 56.0
-size_flags_horizontal = 3
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 5 )
-custom_styles/normal = SubResource( 7 )
-bbcode_enabled = true
-bbcode_text = "[u] ooooooooooooo [/u]"
-text = " ooooooooooooo "
-fit_content_height = true
-scroll_active = false
-
-[node name="answer_row3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-margin_top = 120.0
-margin_right = 381.0
-margin_bottom = 176.0
-
-[node name="spacer" type="Control" parent="ScrollContainer/VBoxContainer/answer_row3"]
-margin_right = 25.0
-margin_bottom = 56.0
-rect_min_size = Vector2( 25, 0 )
-
-[node name="answer2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/answer_row3"]
-margin_left = 29.0
-margin_right = 381.0
-margin_bottom = 56.0
-size_flags_horizontal = 3
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 5 )
-custom_styles/normal = SubResource( 7 )
-bbcode_enabled = true
-bbcode_text = "[u] ooooooooooooo [/u]"
-text = " ooooooooooooo "
-fit_content_height = true
-scroll_active = false
-
-[node name="answer_row4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-margin_top = 180.0
-margin_right = 381.0
-margin_bottom = 236.0
-
-[node name="spacer" type="Control" parent="ScrollContainer/VBoxContainer/answer_row4"]
-margin_right = 25.0
-margin_bottom = 56.0
-rect_min_size = Vector2( 25, 0 )
-
-[node name="answer2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/answer_row4"]
-margin_left = 29.0
-margin_right = 381.0
-margin_bottom = 56.0
-size_flags_horizontal = 3
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 5 )
-custom_styles/normal = SubResource( 7 )
-bbcode_enabled = true
-bbcode_text = "[u] ooooooooooooo [/u]"
-text = " ooooooooooooo "
-fit_content_height = true
-scroll_active = false
-
-[node name="answer_row5" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-margin_top = 240.0
-margin_right = 381.0
-margin_bottom = 296.0
-
-[node name="spacer" type="Control" parent="ScrollContainer/VBoxContainer/answer_row5"]
-margin_right = 25.0
-margin_bottom = 56.0
-rect_min_size = Vector2( 25, 0 )
-
-[node name="answer2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/answer_row5"]
-margin_left = 29.0
-margin_right = 381.0
-margin_bottom = 56.0
-size_flags_horizontal = 3
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 5 )
-custom_styles/normal = SubResource( 7 )
-bbcode_enabled = true
-bbcode_text = "[u] ooooooooooooo [/u]"
-text = " ooooooooooooo "
-fit_content_height = true
-scroll_active = false
-
-[node name="answer_row6" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-margin_top = 300.0
-margin_right = 381.0
-margin_bottom = 356.0
-
-[node name="spacer" type="Control" parent="ScrollContainer/VBoxContainer/answer_row6"]
-margin_right = 25.0
-margin_bottom = 56.0
-rect_min_size = Vector2( 25, 0 )
-
-[node name="answer2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/answer_row6"]
-margin_left = 29.0
-margin_right = 381.0
-margin_bottom = 56.0
-size_flags_horizontal = 3
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_fonts/normal_font = SubResource( 5 )
-custom_styles/normal = SubResource( 7 )
-bbcode_enabled = true
-bbcode_text = "[u] ooooooooooooo [/u]"
-text = " ooooooooooooo "
-fit_content_height = true
-scroll_active = false
-
-[node name="center_container" type="CenterContainer" parent="."]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = -68.0
-margin_right = 1.0
-margin_bottom = -48.0
-grow_vertical = 0
-mouse_filter = 2
-
-[node name="choice_container" type="HBoxContainer" parent="center_container"]
-margin_left = 427.0
-margin_top = 10.0
-margin_right = 427.0
-margin_bottom = 10.0
-mouse_filter = 2
-
-[node name="question_row" type="HBoxContainer" parent="."]
-margin_left = 454.0
-margin_top = 12.0
-margin_right = 847.0
-margin_bottom = 108.0
-script = ExtResource( 4 )
-
-[node name="question" type="RichTextLabel" parent="question_row"]
-margin_right = 364.0
-margin_bottom = 96.0
+margin_right = 339.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 custom_fonts/normal_font = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
+custom_styles/normal = SubResource( 15 )
+bbcode_enabled = true
+bbcode_text = "um, that is just a great question, thank's so much for asking it. I would love to talk more about it. Really. Super question."
+text = "um, that is just a great question, thank's so much for asking it. I would love to talk more about it. Really. Super question."
+fit_content_height = true
+scroll_active = false
+
+[node name="Control" type="Control" parent="ScrollContainer/answers/answer_row"]
+margin_left = 343.0
+margin_right = 343.0
+margin_bottom = 114.0
+
+[node name="stem" type="TextureRect" parent="ScrollContainer/answers/answer_row/Control"]
+margin_left = -36.0
+margin_top = 113.0
+margin_right = -11.0
+margin_bottom = 141.0
+texture = ExtResource( 18 )
+
+[node name="choice_container" type="HBoxContainer" parent="."]
+margin_left = 520.0
+margin_top = 389.0
+margin_right = 824.0
+margin_bottom = 422.0
+mouse_filter = 2
+
+[node name="question_row" type="HBoxContainer" parent="."]
+margin_left = 485.0
+margin_top = 11.0
+margin_right = 878.0
+margin_bottom = 107.0
+script = ExtResource( 4 )
+
+[node name="spacer" type="Control" parent="question_row"]
+margin_right = 25.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 25, 0 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = -217.0
+margin_top = 153.0
+margin_right = 78.0
+margin_bottom = 219.0
+texture_normal = ExtResource( 6 )
+
+[node name="question" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="question" type="RichTextLabel" parent="question"]
+margin_left = 485.0
+margin_top = 11.0
+margin_right = 738.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 5 )
+custom_styles/normal = SubResource( 10 )
 text = "TELL ME ABOUT A TIME WHEN YOU FAILED"
 fit_content_height = true
 scroll_active = false
 
-[node name="spacer" type="Control" parent="question_row"]
-margin_left = 368.0
-margin_right = 393.0
-margin_bottom = 96.0
-rect_min_size = Vector2( 25, 0 )
+[node name="stem" type="TextureRect" parent="question"]
+margin_left = 508.0
+margin_top = 104.0
+margin_right = 534.0
+margin_bottom = 131.0
+texture = ExtResource( 13 )

@@ -1,4 +1,4 @@
-Hello   #interviewer
+Hello, nice to meet you   #interviewer 
     * hey
         that's cool -> begin_interview
     * hello, how are you -> begin_interview

@@ -15,7 +15,7 @@ var choices = []
 # Alternatively, it could also be retrieved from the tree.
 # onready var _ink_player = $InkPlayer
 onready var _ink_player = InkPlayer.new()
-onready var choice_container = $center_container/choice_container
+onready var choice_container = $choice_container
 
 # ############################################################################ #
 # Lifecycle
@@ -106,7 +106,6 @@ func _select_choice(index):
 #
 # func _external_function(arg1, arg2):
 # 	pass
-
 
 # Uncomment to observe the variables from your ink story.
 # You can observe multiple variables by putting adding them in the array.
